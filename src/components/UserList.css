@@ -1,0 +1,16 @@
+.user-list-container {
+    margin-top: 20px;
+}
+
+.user-list {
+    list-style: none;
+    padding: 0;
+}
+
+.user-list-item {
+    margin-bottom: 10px;
+}
+
+.user-details {
+    font-weight: bold;
+}

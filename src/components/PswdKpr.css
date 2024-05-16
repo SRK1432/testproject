@@ -1,0 +1,39 @@
+.pswdkpr {
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pswdkpr h2 {
+    margin-bottom: 10px;
+}
+
+.pswdkpr > div {
+    margin-bottom: 10px;
+}
+
+.pswdkpr label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.pswdkpr input[type="text"] {
+    width: 20%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.pswdkpr button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 3px;
+    background-color: blue;
+    color: #fff;
+    cursor: pointer;
+}
+
+
