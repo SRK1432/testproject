@@ -1,14 +1,9 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {PasswordContext} from "../PasswordContext";
 import './UserList.css';
 
-const UserList = ({ users, onDelete, onEdit }) => {
-    const handleDelete = (index) => {
-        onDelete(index);
-    };
-
-    const handleEdit = (user) => {
-        onEdit(user);
-    };
+const UserList=() => {
+    const {users, handleDelete,handleEdit} = useContext(PasswordContext);
 
     return (
         <div className="user-list-container">
@@ -18,7 +13,7 @@ const UserList = ({ users, onDelete, onEdit }) => {
                     <li key={index} className="user-list-item">
                         {user.enteredTitle} - {user.enteredPswd}
                         <button onClick={() => handleDelete(index)}>Delete</button>
-                        <button onClick={() => handleEdit(user)}>Edit</button>
+                        <button onClick={() => handleEdit(user, index)}>Edit</button>
                     </li>
                 ))}
             </ul>

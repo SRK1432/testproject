@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, {useContext, useEffect, useState} from 'react';
+import {PasswordContext} from "../PasswordContext";
 import './Modal.css';
 
-const Modal = ({ onClose, onAddPswd, editUser }) => {
+const Modal = ({onClose, editUser}) => {
+    const {addPswdHandler} = useContext(PasswordContext);
     const [enteredTitle, setEnteredTitle] = useState('');
     const [enteredPswd, setEnteredPswd] = useState('');
 
@@ -17,18 +19,11 @@ const Modal = ({ onClose, onAddPswd, editUser }) => {
 
     const submitHandler = (event) => {
         event.preventDefault();
-        if (enteredTitle.trim() === '' || enteredPswd.trim() === '') {
+        if (enteredTitle.trim()=== '' || enteredPswd.trim() ==='') {
             return;
         }
-        if (editUser) {
-            onAddPswd({ ...editUser, enteredTitle, enteredPswd });
-        } else {
-            onAddPswd({ enteredTitle, enteredPswd });
-        }
-        onClose();
-    };
-
-    const closeModal = () => {
+        const newUser = {enteredTitle, enteredPswd};
+        addPswdHandler(editUser ? { ...newUser, index: editUser.index} : newUser);
         onClose();
     };
 
@@ -57,7 +52,7 @@ const Modal = ({ onClose, onAddPswd, editUser }) => {
                     <button className="btn-submit" type='submit'>
                         {editUser ? 'Update' : 'Add'}
                     </button>
-                    <button className="btn-cancel" type='button' onClick={closeModal}>x</button>
+                    <button className="btn-cancel" type='button' onClick={onClose}>x</button>
                 </div>
             </form>
         </div>
